@@ -11,7 +11,10 @@
 |
 */
 
-// Route::get('hello', 'HelloController@index');
+use App\Http\Middleware\HelloMiddleware;
 
-Route::get('hello/{id?}', 'HelloController@index');
+
+Route::get('hello/{id?}', 'HelloController@index')
+    ->middleware(HelloMiddleware::class);
+
 Route::post('hello', 'HelloController@post');
